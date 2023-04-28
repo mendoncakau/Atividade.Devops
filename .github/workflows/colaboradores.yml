@@ -1,6 +1,10 @@
 name: Java CI
 
-on: [push]
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
 
 jobs:
   build:
@@ -8,14 +12,17 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout
-      uses: actions/checkout@v2
-      
-    - name: Set up JDK
-      uses: actions/setup-java@v2
+    - uses: actions/checkout@v3
+    
+    - name: Instalando JDK
+      uses: actions/setup-java@v3
       with:
-        distribution: adopt
         java-version: '11'
+        distribution: 'temurin'
+    - name: Compilar o Java
+      run: javac -cp src src/Main.java
       
-    - name: Build with Gradle
-      run: ./gradlew build
+    - name: Executando o projeto
+      run: |
+       cd src
+       java Main
