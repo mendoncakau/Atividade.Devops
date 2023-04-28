@@ -63,5 +63,6 @@ public class Main {
             System.out.println("Período: " + colaborador.getPeriodo());
             System.out.println("---------------------------------------");
         }
+
     }
 }
