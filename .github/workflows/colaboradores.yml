@@ -1,4 +1,4 @@
-name: Java CI
+name: Java Ant CI
 
 on:
   push:
@@ -8,21 +8,16 @@ on:
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v3
-    
-    - name: Instalando JDK
-      uses: actions/setup-java@v3
-      with:
-        java-version: '11'
-        distribution: 'temurin'
-    - name: Compilar o Java
-      run: javac -cp src src/Main.java
-      
-    - name: Executando o projeto
-      run: |
-       cd src
-       java Main
+    - uses: actions/checkout@v2
+
+    - name: Install Java Ant
+      run: sudo apt-get update && sudo apt-get -y install ant
+
+    - name: Compile Java
+      run: ant compile
+
+    - name: Run Java
+      run: ant run
