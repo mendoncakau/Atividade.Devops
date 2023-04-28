@@ -1,9 +1,6 @@
 name: Java CI
 
-on:
-  push:
-    branches:
-      - main
+on: [push]
 
 jobs:
   build:
@@ -11,15 +8,14 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout code
+    - name: Checkout
       uses: actions/checkout@v2
-
-    - name: Set up JDK 11
+      
+    - name: Set up JDK
       uses: actions/setup-java@v2
       with:
-        java-version: 11
-
-    - name: Compile and run project
-      run: |
-        javac MyScannerClass.java
-        java MyScannerClass
+        distribution: adopt
+        java-version: '11'
+      
+    - name: Build with Gradle
+      run: ./gradlew build
