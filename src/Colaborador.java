@@ -38,4 +38,16 @@ public class Colaborador {
     public String getPeriodo() {
         return periodo;
     }
+
+    @Override
+    public String toString() {
+        return "Colaborador{" +
+                "nome='" + nome + '\'' +
+                ", cpf='" + cpf + '\'' +
+                ", telefone='" + telefone + '\'' +
+                ", dataNascimento='" + dataNascimento + '\'' +
+                ", dataAgendamento='" + dataAgendamento + '\'' +
+                ", periodo='" + periodo + '\'' +
+                '}';
+    }
 }
