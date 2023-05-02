@@ -27,5 +27,5 @@ jobs:
       
     - name: Executar o Teste
       run: |
-       java Teste
+       java -cp src Teste
       
