@@ -22,6 +22,10 @@ jobs:
     - name: Compilar o Java
       run: javac -cp src src/Main.java
       
-    - name: Executar o Java
+    - name: Compilar o Teste
       run: javac -cp src src/Teste.java
+      
+    - name: Executar o Teste
+      run: |
+       java Teste
       
